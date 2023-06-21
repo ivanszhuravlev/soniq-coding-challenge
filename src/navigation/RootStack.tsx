@@ -2,7 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {GalleryScreen} from '@screens/GalleryScreen';
 import {ImageModalScreen} from '@screens/ImageModalScreen';
-import {NavigationModel} from 'navigation';
+import {NavigationModel} from './navigation.types';
 
 const Stack = createNativeStackNavigator<NavigationModel.RootStack>();
 
