@@ -37,4 +37,9 @@ export namespace ApiModel {
   export type Mocks = {
     [endpoint: string]: ApiEntity[];
   };
+
+  export enum QueryKey {
+    ImagesList = 'ImagesList',
+    ImageItem = 'ImageItem',
+  }
 }

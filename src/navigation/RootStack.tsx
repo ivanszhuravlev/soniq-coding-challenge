@@ -4,7 +4,7 @@ import {GalleryScreen} from 'screens/GalleryScreen';
 import {ImageModalScreen} from 'screens/ImageModalScreen';
 import {NavigationModel} from './navigation.types';
 
-const Stack = createNativeStackNavigator<NavigationModel.RootStack>();
+const Stack = createNativeStackNavigator<NavigationModel.RootStackParamsList>();
 
 export const RootStack = () => {
   return (
