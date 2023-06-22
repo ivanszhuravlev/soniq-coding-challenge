@@ -8,9 +8,21 @@ const Stack = createNativeStackNavigator<NavigationModel.RootStackParamsList>();
 
 export const RootStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Gallery">
+    <Stack.Navigator
+      initialRouteName="Gallery"
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="Gallery" component={GalleryScreen} />
-      <Stack.Screen name="ImageModal" component={ImageModalScreen} />
+      <Stack.Screen
+        name="ImageModal"
+        component={ImageModalScreen}
+        options={{
+          animation: 'fade',
+          presentation: 'transparentModal',
+          gestureEnabled: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

@@ -4,6 +4,7 @@ import {DefaultTheme} from 'styled-components/native';
 interface Color {
   primaryDark: string;
   primaryWhite: string;
+  grey10: string;
 }
 
 enum Radius {
@@ -21,11 +22,13 @@ declare module 'styled-components' {
 const THEME_LIGHT: Color = {
   primaryDark: '#232323',
   primaryWhite: '#ffffff',
+  grey10: '#efefef',
 };
 
 const THEME_DARK: Color = {
   primaryDark: '#232323',
   primaryWhite: '#ffffff',
+  grey10: '#efefef',
 };
 
 const sizeFactor = 4;

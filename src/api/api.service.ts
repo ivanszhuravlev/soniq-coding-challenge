@@ -8,8 +8,8 @@ export class ApiService<T extends ApiModel.ApiEntity> {
     this.path = basePath;
   }
 
-  get<P extends ApiModel.QueryParams>(params?: P) {
-    return apiClient.get<T>(this.path, params);
+  get<P extends ApiModel.QueryParams>(id: string, params?: P) {
+    return apiClient.get<T>(`${this.path}/${id}`, params);
   }
 
   list<P extends ApiModel.QueryParams>(params?: P) {

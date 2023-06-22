@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {NavigationModel} from 'navigation/navigation.types';
 import {Page} from 'components/atoms/Page';
-import {Gallery} from 'components/organisms/Gallery/Gallery';
+import {Gallery} from 'components/organisms/Gallery';
 import {useImagesList} from 'features/image';
 
 export const GalleryScreen = ({navigation}: NavigationModel.Props) => {

@@ -1,5 +1,4 @@
-import React, {useMemo} from 'react';
-import {Pressable} from 'react-native';
+import React from 'react';
 import {ImageCardStyled} from './ImageCard.styled';
 
 type Props = {
@@ -15,16 +14,9 @@ export const ImageCard = ({url, id, onPress, ratio}: Props) => {
 
   const handlePress = () => onPress(id);
 
-  const containerStyle = useMemo(
-    () => ({
-      aspectRatio: ratio,
-    }),
-    [ratio],
-  );
-
   return (
-    <Pressable style={containerStyle} onPress={handlePress}>
+    <ImageCardStyled.Container ratio={ratio} onPress={handlePress}>
       <ImageCardStyled.Image source={source} resizeMode={'cover'} />
-    </Pressable>
+    </ImageCardStyled.Container>
   );
 };
