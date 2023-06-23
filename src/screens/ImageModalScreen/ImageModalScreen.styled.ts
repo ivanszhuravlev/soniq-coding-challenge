@@ -2,7 +2,7 @@ import {DescriptionBar} from 'components/molecules/DescriptionBar';
 import {Header} from 'components/molecules/Header';
 import styled from 'styled-components/native';
 
-const Container = styled.View({
+const Container = styled.Pressable({
   flex: 1,
 });
 
@@ -13,14 +13,14 @@ const ImageContainer = styled.View(({theme}) => ({
 }));
 
 const HeaderStyled = styled(Header)(({theme}) => ({
-  backgroundColor: `${theme.color.primaryWhite}bb`,
+  backgroundColor: `${theme.color.primaryWhite}dd`,
   position: 'absolute',
   left: 0,
   top: 0,
 }));
 
 const DescriptionStyled = styled(DescriptionBar)(({theme}) => ({
-  backgroundColor: `${theme.color.primaryWhite}bb`,
+  backgroundColor: `${theme.color.primaryWhite}dd`,
 }));
 
 export const ImageModalScreenStyled = {

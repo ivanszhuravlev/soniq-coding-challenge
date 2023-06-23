@@ -1,9 +1,11 @@
 import React, {useMemo} from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {NavigationModel} from 'navigation/navigation.types';
-import {useImageById} from 'features/image';
+import {useImageById, useMutateImage} from 'features/image';
 import {ImageFullscreen} from 'components/molecules/ImageFullscreen';
 import {ImageModalScreenStyled} from './ImageModalScreen.styled';
+import {Keyboard} from 'react-native';
+import {KeyboardAvoidingContainer} from './components/KeyboardAvoidingContainer/KeyboardAvoidingContainer';
 
 export const ImageModalScreen = ({
   navigation,
@@ -11,9 +13,16 @@ export const ImageModalScreen = ({
 }: NavigationModel.Props) => {
   const {bottom, top} = useSafeAreaInsets();
 
-  const {data} = useImageById(route.params?.id);
+  const {data, refetch} = useImageById(route.params?.id);
+  const {data: updated, mutate: updateImage} = useMutateImage(
+    route.params?.id,
+    refetch,
+  );
 
   const onBackPress = () => navigation.goBack();
+
+  const onSubmitDescription = (description: string) =>
+    updateImage({description});
 
   const imageContainerStyle = useMemo(
     () => ({
@@ -36,24 +45,29 @@ export const ImageModalScreen = ({
   );
 
   return (
-    <ImageModalScreenStyled.Container>
-      {!!data && (
-        <ImageModalScreenStyled.ImageContainer style={imageContainerStyle}>
-          <ImageFullscreen
-            source={imageSource}
-            aspectRatio={data.width / data.height}
-            resizeMode={'contain'}
-          />
-        </ImageModalScreenStyled.ImageContainer>
-      )}
-      <ImageModalScreenStyled.HeaderStyled
-        fillStatusBar
-        onLeftPress={onBackPress}
-      />
-      <ImageModalScreenStyled.DescriptionStyled
-        text="Yo yoyoyo description! Attention please, all trains go to U Haupbahnhof without stops!"
-        style={descriptionStyle}
-      />
-    </ImageModalScreenStyled.Container>
+    <KeyboardAvoidingContainer>
+      <ImageModalScreenStyled.Container
+        onPress={Keyboard.dismiss}
+        accessible={false}>
+        {!!data && (
+          <ImageModalScreenStyled.ImageContainer style={imageContainerStyle}>
+            <ImageFullscreen
+              source={imageSource}
+              aspectRatio={data.width / data.height}
+              resizeMode={'contain'}
+            />
+          </ImageModalScreenStyled.ImageContainer>
+        )}
+        <ImageModalScreenStyled.HeaderStyled
+          fillStatusBar
+          onLeftPress={onBackPress}
+        />
+        <ImageModalScreenStyled.DescriptionStyled
+          initialText={updated?.description || data?.description}
+          style={descriptionStyle}
+          onSubmitText={onSubmitDescription}
+        />
+      </ImageModalScreenStyled.Container>
+    </KeyboardAvoidingContainer>
   );
 };

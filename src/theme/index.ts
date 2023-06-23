@@ -5,6 +5,7 @@ interface Color {
   primaryDark: string;
   primaryWhite: string;
   grey10: string;
+  grey50: string;
 }
 
 enum Radius {
@@ -23,12 +24,14 @@ const THEME_LIGHT: Color = {
   primaryDark: '#232323',
   primaryWhite: '#ffffff',
   grey10: '#efefef',
+  grey50: '#a8a8a8',
 };
 
 const THEME_DARK: Color = {
   primaryDark: '#232323',
   primaryWhite: '#ffffff',
   grey10: '#efefef',
+  grey50: '#a8a8a8',
 };
 
 const sizeFactor = 4;

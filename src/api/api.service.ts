@@ -16,7 +16,11 @@ export class ApiService<T extends ApiModel.ApiEntity> {
     return apiClient.list<T>(this.path, params);
   }
 
-  patch<P extends ApiModel.QueryParams>(data: Partial<T>, params?: P) {
-    return apiClient.patch<T>(this.path, data, params);
+  patch<P extends ApiModel.QueryParams>(
+    id: string,
+    data: Partial<T>,
+    params?: P,
+  ) {
+    return apiClient.patch<T>(`${this.path}/${id}`, data, params);
   }
 }

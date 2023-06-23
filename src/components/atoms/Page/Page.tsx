@@ -1,6 +1,6 @@
 import React, {PropsWithChildren} from 'react';
-import {SafeAreaView} from 'react-native';
+import {PageStyled} from './Page.styled';
 
 export const Page = ({children}: PropsWithChildren) => {
-  return <SafeAreaView style={{flex: 1}}>{children}</SafeAreaView>;
+  return <PageStyled.Container>{children}</PageStyled.Container>;
 };
