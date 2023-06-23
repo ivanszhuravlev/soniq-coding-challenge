@@ -5,6 +5,7 @@ module.exports = {
       'module-resolver',
       {
         root: ['./src'],
+        tests: ['./__tests__/'],
         extensions: ['.ios.ts', '.android.ts', '.js', '.ts', '.tsx', '.json'],
       },
     ],

@@ -5,7 +5,7 @@ interface ApiConstructor {
   new (): ApiModel.ApiClientImplementation;
 }
 
-const ApiClient = (Implementation: ApiConstructor) => {
+export const ApiClient = (Implementation: ApiConstructor) => {
   return new Implementation();
 };
 

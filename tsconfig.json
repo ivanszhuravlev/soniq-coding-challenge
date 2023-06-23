@@ -4,9 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"],
+      "tests": ["__tests__/*"]
     },
     "types": [
-      "@types/styled-components-react-native"
+      "@types/styled-components-react-native",
+      "@types/jest",
     ]
   }
 }
